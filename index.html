@@ -3,216 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemilihan Ketua OSIS SMKN 1 Ampelgading ⚡</title>
+    <title>E-Voting Ketua OSIS SMKN 1 AMPELGADING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #ff4500, #00ff7f, #1e90ff, #ff1493, #ffd700);
-            background-size: 200% 200%;
-            animation: colorShift 6s ease-in-out infinite;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
-            color: #fff;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #333;
             overflow-x: hidden;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            color: white;
-            padding: 45px 20px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
-            animation: slideDown 1s ease-out;
-        }
-
-        header h1 {
-            font-size: 2.9em;
-            margin: 0;
-            text-shadow: 0 0 25px rgba(255,255,255,0.9);
-        }
-
-        header p {
-            font-size: 1.4em;
-            margin: 18px 0 0;
-            opacity: 0.95;
-        }
-
-        .container {
-            max-width: 1150px;
-            margin: 55px auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 35px;
-        }
-
-        .candidate {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(18px);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 28px;
-            padding: 28px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
-            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
             position: relative;
         }
 
-        .candidate:hover {
-            transform: translateY(-18px) scale(1.03);
-            box-shadow: 0 18px 45px rgba(0,0,0,0.35);
-            border-color: #ffd700;
-        }
-
-        .candidate::after {
-            content: "⚡";
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 2.8em;
-            animation: bounce 2.5s ease-in-out infinite;
-        }
-
-        .candidate img {
-            width: 135px;
-            height: 135px;
-            border-radius: 50%;
-            border: 6px solid #ff4500;
-            margin: 0 auto 22px;
-            display: block;
-            transition: transform 0.4s ease, border-color 0.4s ease;
-            box-shadow: 0 0 22px rgba(255,69,0,0.7);
-        }
-
-        .candidate:hover img {
-            transform: scale(1.12) rotate(15deg);
-            border-color: #00ff7f;
-        }
-
-        /* Warna nama kandidat yang lebih jelas dan berbeda untuk masing-masing */
-        .candidate:nth-child(1) h3 {
-            color: #ff4500; /* Orange untuk Ahmad */
-            text-shadow: 0 0 15px rgba(255,69,0,1);
-        }
-        .candidate:nth-child(2) h3 {
-            color: #00ff7f; /* Green untuk Siti */
-            text-shadow: 0 0 15px rgba(0,255,127,1);
-        }
-        .candidate:nth-child(3) h3 {
-            color: #1e90ff; /* Blue untuk Budi */
-            text-shadow: 0 0 15px rgba(30,144,255,1);
-        }
-
-        .candidate h3 {
-            font-size: 1.65em;
-            margin: 18px 0;
-        }
-
-        .candidate p {
-            font-size: 1.05em;
-            line-height: 1.65;
-            margin: 9px 0;
-            color: #fff;
-        }
-
-        button {
-            background: linear-gradient(45deg, #ff4500, #00ff7f);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 32px;
-            cursor: pointer;
-            font-size: 1.25em;
-            font-family: inherit;
-            transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
-            margin-top: 22px;
-            box-shadow: 0 6px 18px rgba(255,69,0,0.5);
-        }
-
-        button:hover {
-            background: linear-gradient(45deg, #00ff7f, #ff4500);
-            transform: translateY(-6px) scale(1.08);
-            box-shadow: 0 12px 28px rgba(0,255,127,0.7);
-        }
-
-        button:active {
-            transform: translateY(-3px) scale(1.02);
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            color: white;
-            padding: 28px;
-            margin-top: 55px;
-            font-size: 1.05em;
-        }
-
-        @keyframes colorShift {
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
-            25% { background-position: 100% 50%; }
-            50% { background-position: 100% 0%; }
-            75% { background-position: 0% 0%; }
+            50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        /* Particle Animation Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+        }
+
+        .particle:nth-child(1) { width: 10px; height: 10px; top: 10%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; top: 20%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 50%; left: 20%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 12px; height: 12px; top: 70%; left: 60%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 20px; height: 20px; top: 90%; left: 40%; animation-delay: 8s; }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6); }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #f0f0f0;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .candidate {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .candidate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .candidate:hover::before {
+            left: 100%;
+        }
+
+        .candidate:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .candidate img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 4px solid #667eea;
+            transition: border-color 0.3s ease;
+        }
+
+        .candidate:hover img {
+            border-color: #f5576c;
+        }
+
+        .candidate h3 {
+            margin: 10px 0;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .candidate p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            animation: bounce 3s infinite, spin 5s linear infinite;
+            display: block;
+            margin: 10px 0;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
         }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .vote-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #667eea);
+            background-size: 300% 300%;
+            animation: btnGradient 3s ease infinite;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes btnGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .vote-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .results {
+            display: none;
+            text-align: center;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .results h2 {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .results p {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .chart {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .bar {
+            width: 20%;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(to top, #667eea, #f5576c);
+            transition: height 1s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #f0f0f0;
+            font-weight: 300;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
             }
-            header h1 {
-                font-size: 2.4em;
+            .candidate {
+                width: 90%;
+            }
+            h1 {
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <header>
-        <h1>⚡ Pemilihan Ketua OSIS SMKN 1 Ampelgading ⚡</h1>
-        <p>Vote sekarang dan rasakan energi yang explosive! 💥</p>
+        <h1>🗳️ E-Voting Ketua OSIS</h1>
+        <p class="subtitle">SMKN 1 AMPELGADING - Pilih Pemimpin Masa Depan! 🚀</p>
     </header>
-    
+
+    <div class="intro">
+        <p>Hey Gen Z! Saatnya buat perubahan di sekolah kita. Pilih kandidat yang paling vibes sama kamu. Vote sekarang dan lihat hasilnya langsung! 💥</p>
+    </div>
+
     <div class="container">
-        <div class="candidate">
-            <img src="https://via.placeholder.com/135?text=Ahmad" alt="Foto Ahmad Rahman">
-            <h3>Ahmad Rahman 🚀</h3>
-            <p><strong>Visi:</strong> Inovasi yang bikin sekolah jadi hotspot kreativitas!</p>
-            <p><strong>Misi:</strong> Event ekstrakurikuler yang booming dan fasilitas yang upgraded.</p>
-            <button onclick="alert('Explosive! Suaramu untuk Ahmad Rahman sudah tercatat! 🔥')">Vote Ahmad Rahman</button>
+        <div class="candidate" id="candidate1">
+            <img src="https://via.placeholder.com/120x120/667eea/ffffff?text=Ahmad" alt="Kandidat 1">
+            <span class="emoji">🌟</span>
+            <h3>Ahmad Rizki</h3>
+            <p>Visioner dan Inovatif! Aku siap bawa OSIS ke level selanjutnya dengan ide-ide fresh dan kolaborasi yang keren. Let's make it happen! 💡</p>
+            <button class="vote-btn" onclick="vote(1)">Vote for Ahmad! 👍</button>
         </div>
-        
-        <div class="candidate">
-            <img src="https://via.placeholder.com/135?text=Siti" alt="Foto Siti Nurhaliza">
-            <h3>Siti Nurhaliza 💖</h3>
-            <p><strong>Visi:</strong> Solidaritas yang kuat dan vibes yang selalu energik!</p>
-            <p><strong>Misi:</strong> Acara sosial yang vibrant dan interaksi yang fun dengan semua.</p>
-            <button onclick="alert('Energik! Suaramu untuk Siti Nurhaliza diterima! 💖')">Vote Siti Nurhaliza</button>
+
+        <div class="candidate" id="candidate2">
+            <img src="https://via.placeholder.com/120x120/ff6b6b/ffffff?text=Budi" alt="Kandidat 2">
+            <span class="emoji">🔥</span>
+            <h3>Budi Santoso</h3>
+            <p>Enerjik dan Peduli! Fokus pada kegiatan yang seru, lingkungan yang hijau, dan suara siswa yang didengar. Bersama kita bisa! 🌍</p>
+            <button class="vote-btn" onclick="vote(2)">Vote for Budi! 🔥</button>
         </div>
-        
-        <div class="candidate">
-            <img src="https://via.placeholder.com/135?text=Budi" alt="Foto Budi Santoso">
-            <h3>Budi Santoso 🌟</h3>
-            <p><strong>Visi:</strong> Belajar yang efektif dengan energi yang positif!</p>
-            <p><strong>Misi:</strong> Program edukasi tambahan yang inspiring dan kolaborasi alumni yang powerful.</p>
-            <button onclick="alert('Powerful! Suaramu untuk Budi Santoso tercatat! 🌟')">Vote Budi Santoso</button>
+
+        <div class="candidate" id="candidate3">
+            <img src="https://via.placeholder.com/120x120/4ecdc4/ffffff?text=Citra" alt="Kandidat 3">
+            <span class="emoji">🎉</span>
+            <h3>Citra Dewi</h3>
+            <p>Kreatif dan Inspiratif! Aku ingin bikin OSIS lebih fun dengan event-event epic dan dukungan untuk semua siswa. Vote for change! 🎨</p>
+            <button class="vote-btn" onclick="vote(3)">Vote for Citra! 🎉</button>
         </div>
     </div>
-    
+
+    <div class="results" id="results">
+        <h2>Terima Kasih Sudah Voting! 🙌</h2>
+        <p id="resultText">Hasil sementara:</p>
+        <div class="chart">
+            <div class="bar"><div class="bar-fill" id="bar1" style="height: 0%;"></div><p>Ahmad</p></div>
+            <div class="bar"><div class="bar-fill" id="bar2" style="height: 0%;"></div><p>Budi</p></div>
+            <div class="bar"><div class="bar-fill" id="bar3" style="height: 0%;"></div><p>Citra</p></div>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2023 SMKN 1 Ampelgading. Voting simulasi yang penuh energi dan nama kandidat yang jelas warnanya! 😎</p>
+        <p>&copy; 2025 SMKN 1 AMPELGADING - Dibuat oleh : Aura Araya 😎</p>
     </footer>
+
+    <script>
+        let votes = {1: 0, 2: 0, 3: 0};
+        let totalVotes = 0;
+
+        function vote(candidate) {
+            votes[candidate]++;
+            totalVotes++;
+            updateResults();
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function updateResults() {
+            let ahmad = Math.round((votes[1] / totalVotes) * 100) || 0;
+            let budi = Math.round((votes[2] / totalVotes) * 100) || 0;
+            let citra = Math.round((votes[3] / totalVotes) * 100) || 0;
+            document.getElementById('resultText').innerText = `Hasil sementara: Ahmad Rizki (${ahmad}%), Budi Santoso (${budi}%), Citra Dewi (${citra}%). Tetap pantau update ya! 📊`;
+            document.getElementById('bar1').style.height = ahmad + '%';
+            document.getElementById('bar2').style.height = budi + '%';
+            document.getElementById('bar3').style.height = citra + '%';
+        }
+    </script>
 </body>
 </html>
